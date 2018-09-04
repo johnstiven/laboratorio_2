@@ -1,13 +1,13 @@
-# include <iostream>
+#include <iostream>
+using namespace std;
 
 void foo_function(void); //Esta declaracion dejela tal y como esta
 
 
   int nums[] = {1, 2, 3, 4, 5};
   int *ptr1 = &nums [0];
-   static int cont1=1;
-#include <iostream>
-using namespace std;
+  static int constante1=1;
+
 
   int main()
   {
@@ -25,11 +25,14 @@ using namespace std;
   void foo_function(void)
   {
       //Su codigo aqui
-      if (*((int*)ptr1) == 5  & cont1 == 0)
+      if (*((int*)ptr1) == 5  & constante1 == 0)
+      
       {
-          cont1=1;
+          constante1=1;
       }
+      
       else
+      
       {
           ++ptr1;
       }
