@@ -1,0 +1,108 @@
+#include <iostream>
+
+/*1. Declare una cadena de caracteres llamada my_string utilizando un puntero */
+
+int main()
+
+
+{
+
+char *my_string= "como as estado";
+std::cout<<"Cadena my_string: ";
+std::cout<<my_string<<std::endl;
+
+
+    
+
+
+
+//std::cout<<"Cadena my_string: ";
+//std::cout<< /*Aqui va la cadena my_string */ <<std::endl;
+
+//*2. Declare una estructura global con 6 miembros de distinto tipo y en este orden (con sus miembros inicializados):
+struct M
+{
+int val1=0;
+char val2 = 'a';
+float val3= 4.01;
+char val4='b';
+double val5=4.088 ;
+int val6= 2;
+}valstruct1;
+
+struct M2
+// Declare otra estructura global con 6 miembros de distinto tipo y en este orden (con sus miembros inicializados):
+{
+int val7=1;
+int val8=2;
+float val9=4.2;
+char val10='c';
+char val11='d';
+double val12=4.555;
+
+}valstruct7;
+
+
+M2 *ptr1= &valstruct7;
+M *ptr2= &valstruct1;
+std::cout<<&valstruct1<<std::endl;
+std::cout<<&valstruct7<<std::endl;
+
+///////////////////////////////////////////////////////////
+
+std::cout << ptr2->val1 << std::endl;
+std::cout << ptr2->val2 << std::endl;
+std::cout << ptr2->val3 << std::endl;
+std::cout << ptr2->val4 << std::endl;
+std::cout << ptr2->val5 << std::endl;
+std::cout << ptr2->val6 << std::endl;
+std::cout << ptr1->val7 << std::endl;
+std::cout << ptr1->val8 << std::endl;
+std::cout << ptr1->val9 << std::endl;
+std::cout << ptr1->val10 << std::endl;
+std::cout << ptr1->val11 << std::endl;
+std::cout << ptr1->val12 << std::endl;
+
+///////////////////////////////////////////////////////////////////////////
+
+std::cout << "estructura M " <<*((int*)ptr2+0) << std::endl;
+std::cout << "estructura M " <<*((char*)ptr2+4) << std::endl;
+std::cout << "estructura M " <<*((float*)ptr2+2) << std::endl;
+std::cout << "estructura M " <<*((char*)ptr2+12) << std::endl;
+std::cout << "estructura M " <<*((double*)ptr2+2) << std::endl;
+std::cout << "estructura M " <<*((int*)ptr2+6) << std::endl;
+
+std::cout << "estructura M2 " <<*((int*)ptr1) << std::endl;
+std::cout << "estructura M2 " <<*((int*)ptr1+1) << std::endl;
+std::cout << "estructura M2 " <<*((float*)ptr1+2) << std::endl;
+std::cout << "estructura M2 " <<*((char*)ptr1+12) << std::endl;
+std::cout << "estructura M2 " <<*((char*)ptr1+13) << std::endl;
+std::cout << "estructura M2 " <<*((double*)ptr1+2) << std::endl;
+
+/////////////////////////////////////////////////////////////
+std::cout << "tamaC1o de valstruct1 "<<sizeof(valstruct1)<< "bytes" << std::endl;
+std::cout << "tamaC1o de valstruct7 "<<sizeof(valstruct7)<< "bytes" << std::endl;
+
+// se da las diferencias entre los dos estructuras, 
+// ya que la primera tiene la variables donde ocupan mas espacios en bytes en los registros y 
+// las variables se pueden decir están desorganizadas
+// también, es debido a que el lenguaje c++ va asignando de a 2 bloques de 8 //bytes, y cuando ve que algún bloque esta lleno pero el siguiente no pero hay //un  carácter como un double a este le faltaria 4 bytes lo cual el lenguaje //c++pasa al siguiente bloque de 2 espacios dejando un hueco vació en el //anterior bloque de 8 bites por lo tanto hay un desperdicio de espacio y por //este motivo es la diferencia en los tamac1o de valstruct1 y  valstruct7
+
+}
+
+
+
+/*3.Agregue a la funcion foo_function() un arreglo unidimensional del tipo y del tamanio que ud prefiera.
+ * Declare un puntero al arreglo y luego agregue las lineas de codigo necesarias para lograr que cada vez que
+ * se haga un llamado a la funcion foo_function() dentro de la funcion main se imprima un elemento del arreglo
+ * (en el orden que estan en el arreglo) con ayuda de la aritmetica de punteros.
+ */
+
+/* Enlaces de internet utiles:
+ * http://c.conclase.net/curso/index.php?cap=011
+ * http://c.conclase.net/curso/index.php?cap=011b#STR_sizeof
+ * https://stackoverflow.com/questions/8657776/pointer-arithmetic-with-structures
+ * https://stackoverflow.com/questions/119123/why-isnt-sizeof-for-a-struct-equal-to-the-sum-of-sizeof-of-each-member
+ * http://www.catb.org/esr/structure-packing/
+ * https://www.geeksforgeeks.org/structure-member-alignment-padding-and-data-packing/
+ */
